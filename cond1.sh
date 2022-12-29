@@ -3,11 +3,16 @@
 IFS=',' read -r -a array <<< "$1"
 
 #Write your code here
-echo "Enter String"
-read Text
-symbols="${Text//[^*!@#$%^&()_+]/}"
-numbers="${Text//[^[:digit:]]/}"
-letters="${Text//[^[:alpha:]]/}"
-echo "Symbols= ${#symbols}"
-echo "Numbers= ${#numbers}"
-echo "Letters= ${#letters}"
+echo "Enter Size(N)"
+read N
+sum=0
+echo "Enter Numbers"
+for((i=1;i<=N;i++))
+do
+  read num           #get number
+  if [ `expr $num % 2` == 0 ]
+  then
+      sum=$((sum + num)) #sum+=num
+  fi
+done
+echo $sum
