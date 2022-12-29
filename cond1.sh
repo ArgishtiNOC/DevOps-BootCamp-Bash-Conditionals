@@ -1,18 +1,15 @@
 #!/bin/bash
 
-IFS=',' read -r -a array <<< "$1"
+#IFS=',' read -r -a array <<< "$1"
 
 #Write your code here
-echo "Enter Size(N)"
-read N
+IFS=',' read -r -a nums <<< "$1"
+x=${#nums[@]}
+echo "$x"
 sum=0
-echo "Enter Numbers"
-for((i=1;i<=N;i++))
-do
-  read num           #get number
-  if [ `expr $num % 2` == 0 ]
-  then
-      sum=$((sum + num)) #sum+=num
-  fi
-done
-echo $sum
+for arg in "${!nums[@]}"; do
+   if (( arg%2==0 )); then 
+      sum=$((sum + arg))
+    fi
+done 
+echo "$sum"    
