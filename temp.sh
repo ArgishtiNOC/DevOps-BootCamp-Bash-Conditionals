@@ -1,10 +1,10 @@
 #!/bin/bash
-temp=$1
+x=$1
 
-if [ ${temp: -1} = 'C' ]
+if [ ${x: -1} = 'C' ]
 then
-        echo "$[${temp::-1}+273]K"
+        echo "$[${x::-1}+273]K"
 
 else
-        echo "$[${temp::-1}-273]C"
+        echo "$[${x::-1}-273]C"
 fi
